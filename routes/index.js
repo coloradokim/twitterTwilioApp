@@ -7,8 +7,6 @@ var hashtag = db.get('hashtag');
 var users = db.get('users');
 var bcrypt = require('bcryptjs');
 
-
-
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Tweet and Twilio' });
@@ -67,6 +65,21 @@ router.post('/register', function (req, res, next) {
     })
   }
 })
+
+
+//Route to the search form
+router.get('/search', function(req, res, next) {
+  res.render('search', {});
+});
+
+//Collect data from the search form and insert into the database
+router.post('/search', function (req, res, next) {
+  console.log(req.params.hashtag);
+  hashtag.insert(req.body, function (err, doc) {
+    if (err) return error
+    res.redirect('/users')
+  })
+});
 
 
 module.exports = router;

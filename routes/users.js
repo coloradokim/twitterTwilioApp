@@ -9,23 +9,22 @@ var twilioClient = require('twilio')(process.env.TWILIO_ACCOUNT_SID, process.env
 
 //Twilio API
 //This will become a post request that looks like this: HTTP POST to Messages /2010-04-01/Accounts/{AccountSid}/Messages
-twilioClient.sendMessage({
-    to:'+17194294831', // Eventually, the phonenumber from the database
-    from: '+14847722321', // A number you bought from Twilio and can use for outbound communication
-    body: 'fifth time!' // text of tweet
-}, function(err, responseData) { //this function is executed when a response is received from Twilio
-    if (!err) { // "err" is an error received during the request, if any
-
-        // "responseData" is a JavaScript object containing data received from Twilio.
-        // A sample response from sending an SMS message is here (click "JSON" to see how the data appears in JavaScript):
-        // http://www.twilio.com/docs/api/rest/sending-sms#example-1
-
-        console.log(responseData.from); // outputs "sendMessage.from  "
-        console.log(responseData.body); // outputs sendMessage.body
-
-    }
-});
-
+// twilioClient.sendMessage({
+//     to:'+17194294831', // Eventually, the phonenumber from the database
+//     from: '+14847722321', // A number you bought from Twilio and can use for outbound communication
+//     body: 'fifth time!' // text of tweet
+// }, function(err, responseData) { //this function is executed when a response is received from Twilio
+//     if (!err) { // "err" is an error received during the request, if any
+//
+//         // "responseData" is a JavaScript object containing data received from Twilio.
+//         // A sample response from sending an SMS message is here (click "JSON" to see how the data appears in JavaScript):
+//         // http://www.twilio.com/docs/api/rest/sending-sms#example-1
+//
+//         console.log(responseData.from); // outputs "sendMessage.from  "
+//         console.log(responseData.body); // outputs sendMessage.body
+//
+//     }
+// });
 
 var client = new Twitter({
   consumer_key: process.env.TWITTER_CONSUMER_KEY,
@@ -37,7 +36,7 @@ var client = new Twitter({
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  var params = {q: 'dogs'};
+  var params = {q: 'wednesday'};
   client.get('search/tweets', params, function(error, tweets, response){
      if (!error) {
        res.render('users', {tweets: tweets.statuses});
@@ -45,27 +44,13 @@ router.get('/', function(req, res, next) {
    })
  });
 
- //Route to the input form
- router.get('/form', function(req, res, next) {
-   res.render('form', {});
+ // console.log(hashtag.findOne({hashtag: req.body.hashtag})); this returns some wort of object
+
+
+ /* GET confirmation page. */
+ router.get('/confirmation', function(req, res, next) {
+   res.render('confirmation');
  });
-
- //Collect data from input form
- router.post('/users', function (req, res, next) {
-   console.log(req.body);
-   hashtag.insert(req.body)
-     res.redirect('users')
- });
-
-
-
-//test route -- delete soon (maybe this will fix itself when the database stuff is worked out. )
- router.get('/test', function (req, res, next) {
-  hashtag.findOne({hashtag: req.body}, function (err, doc) {
-    if (err) throw err
-    res.render('test', doc)
-  })
-});
 
 
 

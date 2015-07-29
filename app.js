@@ -6,10 +6,10 @@ var cookieParser = require('cookie-parser');
 var cookieSession = require('cookie-session');
 var bodyParser = require('body-parser');
 var Twitter = require('twitter');
-
-
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var db = require('monk')(process.env.MONGOLAB_URI);
+var hashtag = db.get('hashtag');
 
 var app = express();
 
