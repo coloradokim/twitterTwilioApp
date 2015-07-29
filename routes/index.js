@@ -66,7 +66,6 @@ router.post('/register', function (req, res, next) {
   }
 })
 
-
 //Route to the search form
 router.get('/search', function(req, res, next) {
   res.render('search', {});
@@ -77,7 +76,7 @@ router.post('/search', function (req, res, next) {
   console.log(req.params.hashtag);
   hashtag.insert(req.body, function (err, doc) {
     if (err) return error
-    res.redirect('/users')
+    res.redirect('users/hashtags')
   })
 });
 

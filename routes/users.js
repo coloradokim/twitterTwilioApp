@@ -25,6 +25,14 @@ var twilioClient = require('twilio')(process.env.TWILIO_ACCOUNT_SID, process.env
 //
 //     }
 // });
+//
+// router.get('/:id', function (req, res, next) {
+//   hashtag.findOne({_id: req.params.hashtag}, function (err, doc) {
+//     console.log(req.params.hashtag);
+//     if (err) throw err
+//     res.render('users/send', doc)
+//   })
+// });
 
 var client = new Twitter({
   consumer_key: process.env.TWITTER_CONSUMER_KEY,
@@ -34,17 +42,23 @@ var client = new Twitter({
 });
 
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  var params = {q: 'wednesday'};
+// This interacts with the twitter API
+router.get('/send', function(req, res, next) {
+  console.log(req.query.hashtag);
+  var params = {q: req.query.hashtag};
   client.get('search/tweets', params, function(error, tweets, response){
      if (!error) {
-       res.render('users', {tweets: tweets.statuses});
+       res.render('send', {tweets: tweets.statuses});
      }
    })
  });
 
- // console.log(hashtag.findOne({hashtag: req.body.hashtag})); this returns some wort of object
+
+ router.get('/hashtags', function(req, res, next) {
+   hashtag.find({}, function (err, docs){
+     res.render('hashtags', { hashtag: docs })
+   })
+ });
 
 
  /* GET confirmation page. */
