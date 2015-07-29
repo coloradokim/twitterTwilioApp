@@ -1,15 +1,12 @@
 <h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
-
+<h2>Please Register</h2>
 {{#if errors}}
   <h3>{{errors}}</h3>
 {{/if}}
-<p>Hello {{email}}</p>
-<form action="/login" method="post">
+<form action="/register" method="post">
   <label for="email">Email</label>
   <input type="email" name="email" id ="email" value=""> <br>
   <label for="password">Password</label>
   <input type="password" name="password" id="password" value=""> <br>
   <button type="submit" name="submit" value="Submit">Submit</button>
 </form>
-<h3>Don't have an account? Click <a href="/register">here</a> to register.</h3>

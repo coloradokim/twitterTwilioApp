@@ -1,11 +1,14 @@
 <h2>This is the users.hbs view page</h2>
+<a href="/logout"><button class="button">Logout</button></a>
+
+
 
 {{#tweets}}
   <article class="">
-    {{screen_name}}
-    {{created_at}}
-  <p>  {{text}} </p>
+    <p>
+      {{screen_name}}
+      {{created_at}}
+      {{text}}
+    </p>
   </article>
 {{/tweets}}
-
-//each?
