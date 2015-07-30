@@ -1,0 +1,11 @@
+{{#emergencyTweet}}
+<article >
+  Message: {{message}}<br>
+  Phone Number: {{phoneNumber}}
+  <br>
+
+  <form action="users/confirmation" method="POST">
+    <input type="submit" name="send" value="Send Emergency Tweet"><a href="/users/confirmation/?phoneNumber={{phoneNumber}}&message={{message}}"></a>
+</form>
+</article>
+{{/emergencyTweet}}

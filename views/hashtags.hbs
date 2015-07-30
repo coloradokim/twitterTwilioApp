@@ -1,9 +1,7 @@
-<h2>This is the hashtags.hbs view page</h2>
-<h3>It will display a list of anchor tags that are the users hashtag searches</h3>
+<h1>Hashtags</h1>
+
 <a href="/logout"><button class="button">Logout</button></a>
 
-
-// list of search hashtags
       {{#hashtag}}
       <article class="hashtags">
         <a href="/users/send/?hashtag={{hashtag}}">{{hashtag}}</a>

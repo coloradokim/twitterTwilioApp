@@ -4,14 +4,17 @@ var express = require('express');
 var router = express.Router();
 var db = require('monk')(process.env.MONGOLAB_URI);
 var hashtag = db.get('hashtag');
+var emergencyTweet = db.get('emergencyTweet')
 var users = db.get('users');
 var bcrypt = require('bcryptjs');
+var twilioClient = require('twilio')(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
+
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Tweet and Twilio' });
 });
-
 
 // Login Route
 router.post('/login', function (req, res) {
@@ -20,7 +23,7 @@ router.post('/login', function (req, res) {
     else if (doc) {
       if (bcrypt.compareSync(req.body.password, doc.password)) {
         req.session.email = req.body.email
-        res.redirect('users/form')
+        res.redirect('search')
       }
     } else {
       res.render('index', {error: 'TRY AGAIN. Username or password are incorrect'})
@@ -56,7 +59,7 @@ router.post('/register', function (req, res, next) {
           users.insert(req.body, function (err, doc) {
             if (err) return error
             req.session.id = doc._id
-            res.redirect('users/form')
+            res.redirect('search')
         })
       } else {
         error.push('Login invalid')
@@ -73,12 +76,38 @@ router.get('/search', function(req, res, next) {
 
 //Collect data from the search form and insert into the database
 router.post('/search', function (req, res, next) {
-  console.log(req.params.hashtag);
   hashtag.insert(req.body, function (err, doc) {
     if (err) return error
     res.redirect('users/hashtags')
   })
 });
+
+
+//Collects data from the send form, and inserts it into the database
+router.post('/send', function(req, res, next ){
+  emergencyTweet.insert(req.body, function (err, doc) {
+    if (err) return error
+    res.redirect('/users/preview')
+  })
+})
+
+// router.post('/preview', function (req, res, next) {
+//   twilioClient.sendMessage({
+//       to: req.query.phoneNumber,
+//       from: '+14847722321', // A number you bought from Twilio and can use for outbound communication
+//       body: req.query.message
+//   }, function(err, responseData) { //this function is executed when a response is received from Twilio
+//       if (!err) {
+//           console.log(responseData.from); // outputs "sendMessage.from
+//           console.log(responseData.body); // outputs sendMessage.body
+//           res.redirect('/users/confirmation')
+//       }
+//   });
+// });
+
+
+
+
 
 
 module.exports = router;
