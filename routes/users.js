@@ -32,35 +32,11 @@ var client = new Twitter({
   });
 
   router.get('/preview', function( req, res, next) {
-    emergencyTweet.findOne(req.body, function (err, doc) {
-      console.log(doc);
+    emergencyTweet.findOne(req.body, function (err, doc){
       if (err) throw err
       res.render('preview', {emergencyTweet: doc})
     })
   });
-
-  router.post('/confirmation', function (req, res, next) {
-    twilioClient.sendMessage({
-        to: req.query.phoneNumber,
-        from: '+14847722321', // A number you bought from Twilio and can use for outbound communication
-        body: req.query.message
-    }, function(err, responseData) { //this function is executed when a response is received from Twilio
-        if (!err) {
-            console.log(responseData.from); // outputs "sendMessage.from
-            console.log(responseData.body); // outputs sendMessage.body
-            res.redirect('/confirmation')
-        }
-    });
-  });
-
-  /* GET confirmation page. */
-  router.get('/confirmation', function( req, res, next) {
-    emergencyTweet.findOne(req.body, function (err, doc) {
-      if (err) throw err
-      res.render('/confirmation', {emergencyTweet: doc})
-    })
-  });
-
 
 
 module.exports = router;

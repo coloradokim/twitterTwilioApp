@@ -1,8 +1,141 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
 
-a {
-  color: #00B7FF;
-}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+body {
+  font-family: "Hind", Helvetica, sans-serif;
+  background-color: #DEE7E7;
+  margin: 0 auto;
+  padding: 40px; }
+
+h1 {
+  font-size: 40px;
+  font-weight: bold; }
+
+@media (max-width: 415px) {
+  nav {
+    font-family: "Hind", Helvetica, sans-serif; }
+    nav ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      text-align: center; }
+    nav li {
+      display: block;
+      background-color: #265670;
+      border-bottom: 1px solid white; }
+    nav a {
+      padding: 6px 12px;
+      color: #E1E2DF;
+      text-decoration: none; }
+  main {
+    text-align: center; }
+  main img {
+    margin: 0 auto; }
+  h1 {
+    font-weight: bold; }
+  footer h2 {
+    text-align: center; }
+  footer ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center; }
+  footer li {
+    display: block;
+    background-color: #265670;
+    border-bottom: 1px solid white; }
+  footer a {
+    padding: 6px 12px;
+    color: #E1E2DF;
+    text-decoration: none; } }
+
+/* Styling for larger devices*/
+@media (min-width: 416px) {
+  header {
+    height: 100px;
+    background-color: #265670; }
+  nav {
+    background-color: #265670; }
+    nav ul {
+      margin: 0;
+      list-style: none; }
+    nav li {
+      display: inline;
+      background-color: #265670;
+      float: right;
+      padding: 10px; }
+    nav a {
+      font-weight: bold;
+      font-size: 20px;
+      color: #333;
+      text-decoration: none; }
+  main {
+    text-align: center; }
+  main img {
+    margin: 0 auto; }
+  h1 {
+    font-weight: bold; }
+  footer {
+    height: 100px;
+    background-image: url("images/rg.footer.jpg");
+    background-color: transparent; }
+    footer h2 {
+      color: #E1E2DF;
+      font-size: 30px;
+      text-align: center; }
+    footer ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      text-align: center; }
+    footer li {
+      display: inline; }
+    footer a {
+      padding: 6px 12px;
+      font-size: 25px;
+      color: #E1E2DF;
+      text-decoration: none; } }

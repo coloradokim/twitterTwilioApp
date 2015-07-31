@@ -1,0 +1,16 @@
+$font-stack:  'Hind', Helvetica,  sans-serif;
+$primary-font-color: #333;
+$secondary-font-color: #E1E2DF;
+$header-footer-color: #265670;
+
+body {
+  font-family: $font-stack;
+  background-color: #DEE7E7;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: bold;
+}

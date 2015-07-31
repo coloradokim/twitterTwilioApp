@@ -1,11 +1,8 @@
-<h2>Your Emergency Tweet Was Sent</h2>
-
+<h1>Your Emergency Tweet Was Sent</h1>
+  <h2>History</h2>
 {{#emergencyTweet}}
-<article class="">
-<h3>Message: {{message}} </h3>
-<h3>Phone Number: {{phoneNumber}}</h3>
-</article>
+  <article>
+    <h3>Message: {{message}} </h3>
+    <h3>Sent to: {{phoneNumber}}</h3>
+  </article>
 {{/emergencyTweet}}
-
-
-<a href="/search"><button class="button">Search Again</button></a>

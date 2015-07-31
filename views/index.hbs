@@ -1,10 +1,9 @@
 <h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<p>Welcome to {{title}}!</p>
 
 {{#if errors}}
   <h3>{{errors}}</h3>
 {{/if}}
-<p>Hello {{email}}</p>
 <form action="/login" method="post">
   <label for="email">Email</label>
   <input type="email" name="email" id ="email" value=""> <br>
