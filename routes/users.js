@@ -12,31 +12,30 @@ var client = new Twitter({
   consumer_key: process.env.TWITTER_CONSUMER_KEY,
   consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
   access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
-  access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET,
+  access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
 });
 
- router.get('/hashtags', function(req, res, next) {
-   hashtag.find({}, function (err, docs){
-     res.render('hashtags', { hashtag: docs })
-   })
- });
+router.get('/hashtags', function (req, res, next) {
+  hashtag.find({}, function (err, docs) {
+    res.render('hashtags', { hashtag: docs })
+  })
+});
 
  // This route accesses the twitter search API
- router.get('/send', function(req, res, next) {
-   var params = {q: req.query.hashtag};
-   client.get('search/tweets', params, function(error, tweets, response){
-      if (!error) {
-        res.render('send', {tweets: tweets.statuses});
-      }
-    })
-  });
+router.get('/send', function (req, res, next) {
+  var params = {q: req.query.hashtag};
+  client.get('search/tweets', params, function (error, tweets, response) {
+    if (!error) {
+      res.render('send', {tweets: tweets.statuses});
+    }
+  })
+});
 
-  router.get('/preview', function( req, res, next) {
-    emergencyTweet.findOne(req.body, function (err, doc){
-      if (err) throw err
-      res.render('preview', {emergencyTweet: doc})
-    })
-  });
-
+router.get('/preview', function (req, res, next) {
+  emergencyTweet.findOne(req.body, function (err, doc) {
+    if (err) throw err
+    res.render('preview', {emergencyTweet: doc})
+  })
+});
 
 module.exports = router;

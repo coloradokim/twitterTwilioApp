@@ -1,20 +1,11 @@
 {{#tweets}}
-  <article class="">
-    <p>
-      Tweet: {{text}}
-    </p>
-  </article>
+    <h3>Tweet: {{text}}</h3>
 {{/tweets}}
 
-
-<form  action="/send" method="post">
-
-<label for="message">Message</label>
-<textarea name="message" id="message" cols="50" rows="7" value= ''></textarea><br>
-
-
-<label for="phoneNumber">Phone Number</label>
-<input type="text" name="phoneNumber" id="hashtag" value="+1"> <br>
-
-<input type="submit" name="submit" value="Preview">
-</form>
+  <form action="/send" method="post">
+    <label for="message">Message</label>
+    <textarea name="message" id="message" cols="50" rows="7"></textarea><br>
+    <label for="phoneNumber">Phone Number</label>
+    <input type="text" name="phoneNumber" id="phoneNumber" value="+1"> <br>
+    <input type="submit" name="submit" value="Preview">
+  </form>
