@@ -49,11 +49,33 @@ body {
   font-family: "Hind", Helvetica, sans-serif;
   background-color: #DEE7E7;
   margin: 0 auto;
-  padding: 40px; }
+  padding: 40px;
+  line-height: 2em; }
 
 h1 {
   font-size: 40px;
-  font-weight: bold; }
+  font-weight: bold;
+  padding-top: 1em; }
+
+h2 {
+  font-size: 30px;
+  font-weight: bold;
+  padding-top: 1em; }
+
+h3 {
+  font-size: 20px;
+  font-weight: bold;
+  padding-top: 1em; }
+
+th {
+  font-size: 20px;
+  font-weight: bold;
+  padding-top: 1em; }
+
+td {
+  font-size: 17px;
+  font-weight: bold;
+  padding-top: 1em; }
 
 @media (max-width: 415px) {
   nav {
@@ -111,7 +133,7 @@ h1 {
     nav a {
       font-weight: bold;
       font-size: 20px;
-      color: #333;
+      color: #E1E2DF;
       text-decoration: none; }
   main {
     text-align: center; }
@@ -139,3 +161,15 @@ h1 {
       font-size: 25px;
       color: #E1E2DF;
       text-decoration: none; } }
+
+table {
+  text-align: left;
+  padding: 2px; }
+
+th {
+  border: solid 2px;
+  font-weight: bold;
+  background-color: #E1E2DF; }
+
+td {
+  border: solid 1px; }

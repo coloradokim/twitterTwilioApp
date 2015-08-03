@@ -1,0 +1,14 @@
+table {
+  text-align: left;
+  padding: 2px;
+}
+
+th {
+  border: solid 2px;
+  font-weight: bold;
+  background-color: $secondary-font-color;
+
+}
+td {
+  border: solid 1px;
+}

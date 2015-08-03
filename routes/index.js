@@ -113,4 +113,9 @@ router.get('/confirmation', function(req, res, next) {
   })
 });
 
+//  Route to the search form
+router.get('/styleguide', function (req, res, next) {
+  res.render('styleguide', {});
+});
+
 module.exports = router;

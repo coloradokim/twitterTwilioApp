@@ -8,9 +8,36 @@ body {
   background-color: #DEE7E7;
   margin: 0 auto;
   padding: 40px;
+  line-height: 2em;
 }
 
 h1 {
   font-size: 40px;
   font-weight: bold;
+  padding-top: 1em;
+}
+
+h2 {
+  font-size: 30px;
+  font-weight: bold;
+  padding-top: 1em;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: bold;
+  padding-top: 1em;
+}
+
+th {
+  font-size: 20px;
+  font-weight: bold;
+  padding-top: 1em;
+
+}
+
+td {
+  font-size: 17px;
+  font-weight: bold;
+  padding-top: 1em;
 }

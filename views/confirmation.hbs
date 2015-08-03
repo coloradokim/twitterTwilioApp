@@ -1,8 +1,14 @@
 <h1>Your Emergency Tweet Was Sent</h1>
   <h2>History</h2>
 {{#emergencyTweet}}
-  <article>
-    <h3>Message: {{message}} </h3>
-    <h3>Sent to: {{phoneNumber}}</h3>
-  </article>
+<div class="CSSTableGenerator" >
+  <table>
+      <th>Message</th>
+      <th>Sent To</th>
+    <tr>
+      <td>{{message}}</td>
+      <td>{{phoneNumber}}</td>
+    </tr>
+  </table>
+</div>
 {{/emergencyTweet}}
