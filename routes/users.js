@@ -38,4 +38,16 @@ router.get('/preview', function (req, res, next) {
   })
 });
 
+
+//   twilioClient.sendMessage({
+//     to: req.body.phoneNumber,
+//     from: '+14847722321', // A number you bought from Twilio and can use for outbound communication
+//     body: req.body.message
+// }, function(err, responseData) { //this function is executed when a response is received from Twilio
+//     if (!err) {
+//         console.log(responseData.from); // outputs "sendMessage.from
+//         console.log(responseData.body); // outputs sendMessage.body
+//     }
+//   })
+
 module.exports = router;

@@ -7,7 +7,6 @@ var hashtag = db.get('hashtag');
 var emergencyTweet = db.get('emergencyTweet');
 var users = db.get('users');
 var bcrypt = require('bcryptjs');
-var twilioClient = require('twilio')(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -88,28 +87,17 @@ router.post('/send', function (req, res, next) {
   })
 });
 
-  // twilioClient.sendMessage({
-  //     to: req.query.phoneNumber,
-  //     from: '+14847722321', // A number you bought from Twilio and can use for outbound communication
-  //     body: req.query.message
-  // }, function(err, responseData) { //this function is executed when a response is received from Twilio
-  //     if (!err) {
-  //         console.log(responseData.from); // outputs "sendMessage.from
-  //         console.log(responseData.body); // outputs sendMessage.body
-  //     }
-  // })
-// });
-
 router.post('/preview', function (req, res, next) {
-      res.redirect('/confirmation')
-    });
+  console.log(req.body);
+  res.redirect('/confirmation')
+});
 
 /* GET confirmation page. */
 router.get('/confirmation', function(req, res, next) {
   emergencyTweet.find(req.body, function (err, doc) {
-    console.log(req.query);
     if (err) throw err
     res.render('confirmation', {emergencyTweet: doc})
+
   })
 });
 
